@@ -1,0 +1,58 @@
+#include <iostream>
+#include <vector>
+
+/* 
+	here I intend to collect and write various algorithms under C++ programming environment  
+	
+*/ 
+
+using namespace std;
+
+void printArray(vector<int> & A);
+void insertSort(std::vector<int> & A);
+
+int main(int argc, char** argv)
+{
+  vector <int> v;
+  int tok;
+  cout << "Enter some numbers: \n";
+  while(cin >> tok)
+    {
+      v.push_back(tok);
+    }
+ 
+  cout << "before sorting: ";
+  printArray(v);
+
+  insertSort(v);
+  
+  cout << "after sorting: ";
+  printArray(v);
+  //cin.get();
+  return 0;
+
+}
+
+void printArray(vector<int> & A)
+{
+  for(int i=0; i< A.size(); ++i)
+    {
+      cout << " " << A[i];
+    }
+  cout << endl;
+}
+
+void insertSort(vector<int>& A)
+{
+  for (int j = 1; j < A.size(); ++j)
+    {
+      int key = A[j];
+      int i = j - 1;
+      while( (i >= 0 ) && (A[i] > key) )
+	{
+	  A[i+1] = A[i];
+	  --i;
+	}
+      A[i+1] = key;
+    }
+}
